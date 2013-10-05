@@ -55,8 +55,7 @@
 					    		token: config.keys.pushover.api_token,
 					    		user: config.keys.pushover.user_key,
 					    		title: "Mention from " + data.user.screen_name,
-					    		message: data.text,
-					    		timestamp: (new Date()).getTime()
+					    		message: data.text
 					    	}
 					    },
 					    function (error, response, body) {
