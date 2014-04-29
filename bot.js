@@ -4,9 +4,10 @@
 
 (function() {
 	//the twitter api module
-	var ntwitter = require('ntwitter'),
-		request = require('request'),
-		LogUtils = require('./lib/LogUtils.js'),
+	var ntwitter 	= require('ntwitter'),
+		request 	= require('request'),
+		entities	= require('entities'),
+		LogUtils 	= require('./lib/LogUtils.js'),
 
 		//the username. not set to begin with, we'll get it when authenticating
 		twitterUsername = null,
@@ -54,8 +55,8 @@
 					    	form: {
 					    		token: config.keys.pushover.api_token,
 					    		user: config.keys.pushover.user_key,
-					    		title: "Mention from " + data.user.screen_name,
-					    		message: data.text
+					    		title: "Mention from @" + data.user.screen_name,
+					    		message: entities.decodeHTML(data.text)
 					    	}
 					    },
 					    function (error, response, body) {
