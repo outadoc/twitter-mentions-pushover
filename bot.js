@@ -56,7 +56,9 @@
 					    		token: config.keys.pushover.api_token,
 					    		user: config.keys.pushover.user_key,
 					    		title: "Mention from @" + data.user.screen_name,
-					    		message: entities.decodeHTML(data.text)
+					    		message: entities.decodeHTML(data.text),
+							url: "https://mobile.twitter.com/" + data.user.screen_name + "/status/" + data.id_str,
+							url_title: "Reply to @" + data.user.screen_name
 					    	}
 					    },
 					    function (error, response, body) {
